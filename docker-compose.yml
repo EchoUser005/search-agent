@@ -1,0 +1,27 @@
+services:
+  backend:
+    image: echoyasashii/search-agent-backend:latest
+    container_name: search-agent-backend
+    ports:
+      - "8001:8000"
+    environment:
+      - QWEN_API_KEY=${QWEN_API_KEY}
+      - BOCHA_API_KEY=${BOCHA_API_KEY}
+    restart: unless-stopped
+    networks:
+      - search-agent-network
+
+  frontend:
+    image: echoyasashii/search-agent-frontend:latest
+    container_name: search-agent-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://backend:8000
+    restart: unless-stopped
+    networks:
+      - search-agent-network
+
+networks:
+  search-agent-network:
+    driver: bridge
