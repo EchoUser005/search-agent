@@ -3,11 +3,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-QWEN_API_KEY = os.getenv("QWEN_API_KEY", "sk-79a63f548b2149b2b431485adb3f2adb")
+QWEN_API_KEY = os.getenv("QWEN_API_KEY")
 QWEN_BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
 QWEN_MODEL = "qwen-plus"
 
-BOCHA_API_KEY = os.getenv("BOCHA_API_KEY", "sk-a423b58cd7fb458588449f796f1d02e8")
+BOCHA_API_KEY = os.getenv("BOCHA_API_KEY")
 BOCHA_URL = "https://api.bochaai.com/v1/web-search"
 
 MAX_AGENT_ITERATIONS = 5
